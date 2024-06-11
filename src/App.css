@@ -8,13 +8,15 @@ body {
 .App {
     text-align: left;
     padding: 20px;
-    width: 300px;
-    height: 100vh;
-    margin: auto;
+    width: 350px;
+    height: 400px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     word-wrap: break-word;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .selector-container {
@@ -57,7 +59,7 @@ select:disabled {
 
 select:focus {
     outline: none;
-    border-color: #0078d4; /* Procore blue */
+    border-color: #0078d4; 
     box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.3);
 }
 
@@ -106,17 +108,17 @@ select:focus {
     font-size: 12px;
     cursor: pointer;
     color: #333;
-    margin-bottom: -2px; /* Align with the border */
-    outline: none; /* Remove the default focus outline */
-    display: inline-block; /* Make the button only as wide as the text */
-    position: relative; /* Position for the underline */
+    margin-bottom: -2px; 
+    outline: none;
+    display: inline-block; 
+    position: relative; 
     padding-left: 10px;
 }
 
 .nav-button:focus,
 .nav-button:active {
-    outline: none; /* Remove the outline when focused or active */
-    box-shadow: none; /* Remove any box shadow if present */
+    outline: none; 
+    box-shadow: none; 
 }
 
 .nav-button .underline {
@@ -129,9 +131,9 @@ select:focus {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -4px; /* Adjust the space between the text and the underline */
-    height: 2px; /* Adjust the thickness of the underline */
-    background-color: #0078d4; /* Procore blue for underline */
+    bottom: -4px; 
+    height: 2px; 
+    background-color: #0078d4; 
     width: 100%;
     transform: scaleX(1);
     transform-origin: left;
