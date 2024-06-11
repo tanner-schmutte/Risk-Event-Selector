@@ -103,7 +103,7 @@ select:focus {
 .nav-button {
     background: none;
     border: none;
-    font-size: 14px;
+    font-size: 12px;
     cursor: pointer;
     color: #333;
     margin-bottom: -2px; /* Align with the border */
