@@ -269,7 +269,6 @@ function App() {
 
     return (
         <div className="App">
-            <h2>Risk Event Selector</h2>
             <nav className="nav-bar">
                 <button
                     className={`nav-button ${
