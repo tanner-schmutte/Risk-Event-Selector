@@ -263,7 +263,15 @@ function App() {
 
     const handleRiskEventChange = (event) => {
         setSelectedRiskEvent(event.target.value);
-        navigator.clipboard.writeText(event.target.value);
+        const textArea = document.createElement("textarea");
+        textArea.value = event.target.value;
+        textArea.style.position = "fixed";
+        textArea.style.top = "0";
+        textArea.style.left = "-9999px";
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
         setCopied(true);
     };
 
