@@ -447,16 +447,29 @@ function App() {
                     Links to more information:
                     <ul>
                         <li>
-                            <a>All Risk Events – Categorized</a>
+                            <a
+                                href="https://burnsmcd.sharepoint.com/:x:/r/sites/maccentral-Risk/_layouts/15/Doc.aspx?sourcedoc=%7B2B42B0F6-5E75-4FBF-B7FA-19F8EB9149DF%7D&file=Risk%20Register%20Template%20Rev%2020240404.xlsx&action=view&mobileredirect=true&activeCell='Risk%20Events%20List'!A1&ovuser=bfbb9a2b-6d99-4e78-b3c7-95005d555c8b,mlmarkovetz@burnsmcd.com&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yNDA0MTEyMjMxNSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ=="
+                                target="_blank"
+                            >
+                                All Risk Events – Categorized
+                            </a>
                         </li>
                         <li>
-                            <a>
+                            <a
+                                href="https://burnsmcd.csod.com/samldefault.aspx?ouid=1&returnurl=/ui/lms-learning-details/app/video/fdd61d4a-e190-4978-aa7b-b2a6abde0bf4"
+                                target="_blank"
+                            >
                                 Corporate Risk Review Process Overview Video
                                 (Learning Central)
                             </a>
                         </li>
                         <li>
-                            <a>Risk Management MacCentral Resource Page</a>
+                            <a
+                                href="https://burnsmcd.sharepoint.com/sites/maccentral-risk"
+                                target="_blank"
+                            >
+                                Risk Management MacCentral Resource Page
+                            </a>
                         </li>
                     </ul>
                 </div>
