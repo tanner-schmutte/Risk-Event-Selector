@@ -19,7 +19,7 @@ body {
 }
 
 .selector-container {
-    padding: 0px 20px 0px 20px;
+    padding: 0px 20px 0px 10px;
     margin-right: 20px;
 }
 
@@ -59,7 +59,7 @@ select:disabled {
 
 select:focus {
     outline: none;
-    border-color: #0078d4; 
+    border-color: #0078d4;
     box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.3);
 }
 
@@ -108,17 +108,17 @@ select:focus {
     font-size: 12px;
     cursor: pointer;
     color: #333;
-    margin-bottom: -2px; 
+    margin-bottom: -2px;
     outline: none;
-    display: inline-block; 
-    position: relative; 
+    display: inline-block;
+    position: relative;
     padding-left: 10px;
 }
 
 .nav-button:focus,
 .nav-button:active {
-    outline: none; 
-    box-shadow: none; 
+    outline: none;
+    box-shadow: none;
 }
 
 .nav-button .underline {
@@ -131,14 +131,26 @@ select:focus {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -4px; 
-    height: 2px; 
-    background-color: #0078d4; 
+    bottom: -4px;
+    height: 2px;
+    background-color: #0078d4;
     width: 100%;
     transform: scaleX(1);
     transform-origin: left;
 }
 
 .instructions {
-    text-align: center;
+    font-size: 12px;
+    padding: 0px 20px 0px 10px;
+    margin-right: 20px;
+}
+
+.App a {
+    color: #0078d4;
+    text-decoration: underline;
+}
+
+.App a:hover {
+    color: #0078d4;
+    text-decoration: underline;
 }
