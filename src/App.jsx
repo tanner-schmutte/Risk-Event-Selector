@@ -428,9 +428,7 @@ function App() {
                     ensuring consistent and valuable data.
                     <br></br>
                     <br></br>
-                    <a href="" target="_blank">
-                        Quick Guide Video
-                    </a>
+                    <a>Quick Guide Video</a>
                     <br></br>
                     <br></br>
                     In the ‘Selector’ tab of the side-panel:{" "}
