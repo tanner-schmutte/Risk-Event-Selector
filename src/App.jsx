@@ -18,6 +18,7 @@ const riskCategoryOptions = {
         "Environmental Events",
         "Pricing / Financial",
         "Contracting",
+        "Organization",
     ],
     Client: [
         "Organization",
@@ -28,7 +29,7 @@ const riskCategoryOptions = {
         "Contracting",
         "Claims / Litigation",
     ],
-    "3rd Party to Us": [
+    "3rd Party to BMcD": [
         "Organization",
         "Schedule Related",
         "Performance Related",
@@ -131,7 +132,7 @@ const riskEventOptions = {
         ],
         "Claims / Litigation": ["File claim/suit/lien"],
     },
-    "3rd Party to Us": {
+    "3rd Party to BMcD": {
         Organization: ["Change key leader/manager", "Labor unrest"],
         "Schedule Related": [
             "Change project sequence",
