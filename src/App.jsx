@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import "./App.css";
 
 const riskControlledByOptions = [
-    "BMcD",
-    "Client",
-    "3rd Party to Us",
+    "3rd Party to BMcD",
     "3rd Party to Client",
     "3rd Party Unrelated",
+    "BMcD",
+    "Client",
     "Regulatory Authority",
     "Uncontrolled",
 ];
@@ -439,9 +439,10 @@ function App() {
                             three dropdowns.
                         </li>
                         <li>
-                            After selecting the ‘Risk Event’, close the side
-                            panel, and then paste the selection into the Risk
-                            Event field of the Change Event.
+                            After making all guided selections in this
+                            side-panel, input the selections into the
+                            corresponding Risk fields of the Change Event
+                            screen.
                         </li>
                     </ol>
                     <br></br>

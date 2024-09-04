@@ -73,6 +73,7 @@ select:focus {
     border-right: 5px solid transparent;
     border-top: 5px solid #333;
     transform: translateY(-50%);
+    pointer-events: none;
 }
 
 .custom-select.open .arrow {
