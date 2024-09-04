@@ -94,6 +94,7 @@ const riskEventOptions = {
             "Proceed without written agreement",
             "Refuse to enter contract",
             "Refuse/fail to perform contract requirements",
+            "Planned Deferred Scope Award",
         ],
     },
     Client: {
@@ -107,7 +108,7 @@ const riskEventOptions = {
             "Suspend/stop work",
         ],
         "Performance Related": [
-            "Fail cooperate with us",
+            "Fail to cooperate with us",
             "Fail to grant permit / late permit issuance",
             "Improperly startup/operate machines/equipment",
             "Incomplete or insufficient decision making",
@@ -128,7 +129,7 @@ const riskEventOptions = {
             "Award project to BMcD competitor",
             "Fail/refuse to perform contract requirements (breach contract)",
         ],
-        "Claims / Litigation": ["File claim/suit"],
+        "Claims / Litigation": ["File claim/suit/lien"],
     },
     "3rd Party to Us": {
         Organization: ["Change key leader/manager", "Labor unrest"],
@@ -179,7 +180,7 @@ const riskEventOptions = {
         ],
         "Performance Related": [
             "Design misjudgment, miscalculation, misinterpretation or oversight",
-            "Fail cooperate with us",
+            "Fail to cooperate with us",
             "Execute less efficiently than planned (poor productivity)",
             "Improperly startup/operate machines/equipment",
             "Interfere with activities of others",
