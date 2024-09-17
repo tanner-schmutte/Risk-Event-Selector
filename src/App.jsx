@@ -430,7 +430,12 @@ function App() {
                     ensuring consistent and valuable data.
                     <br></br>
                     <br></br>
-                    <a>Quick Guide Video</a>
+                    <a
+                        href="https://burnsmcd.csod.com/samldefault.aspx?ouid=1&returnurl=/ui/lms-learning-details/app/video/b44d3b7b-6e7c-404a-9200-e3b3a216a90f"
+                        target="_blank"
+                    >
+                        Quick Guide Video
+                    </a>
                     <br></br>
                     <br></br>
                     In the ‘Selector’ tab of the side-panel:{" "}
