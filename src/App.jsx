@@ -328,6 +328,7 @@ function App() {
                                     setSelectedRiskCategory("");
                                     setIsRiskEventOpen(false);
                                     setSelectedRiskEvent("");
+                                    setCopied(false);
                                 }}
                             >
                                 {selectedRiskControlledBy || "Select"}
@@ -365,10 +366,15 @@ function App() {
                                 className={`dropdown-header ${
                                     !selectedRiskControlledBy ? "disabled" : ""
                                 }`}
-                                onClick={() =>
+                                onClick={() => {
                                     selectedRiskControlledBy &&
-                                    setIsRiskCategoryOpen(!isRiskCategoryOpen)
-                                }
+                                        setIsRiskCategoryOpen(
+                                            !isRiskCategoryOpen
+                                        );
+                                    setIsRiskEventOpen(false);
+                                    setSelectedRiskEvent("");
+                                    setCopied(false);
+                                }}
                             >
                                 {selectedRiskCategory || "Select"}
                                 <span
@@ -423,23 +429,30 @@ function App() {
                                     }`}
                                 ></span>
                             </div>
-                            {isRiskEventOpen && selectedRiskCategory && (
-                                <ul className="dropdown-list">
-                                    {riskEventOptions[
-                                        selectedRiskControlledBy
-                                    ]?.[selectedRiskCategory]?.map((option) => (
-                                        <li
-                                            key={option}
-                                            className="dropdown-item"
-                                            onClick={() =>
-                                                handleRiskEventChange(option)
-                                            }
-                                        >
-                                            {option}
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
+                            {isRiskEventOpen &&
+                                selectedRiskCategory &&
+                                !isRiskControlledByOpen &&
+                                !isRiskCategoryOpen && (
+                                    <ul className="dropdown-list">
+                                        {riskEventOptions[
+                                            selectedRiskControlledBy
+                                        ]?.[selectedRiskCategory]?.map(
+                                            (option) => (
+                                                <li
+                                                    key={option}
+                                                    className="dropdown-item"
+                                                    onClick={() =>
+                                                        handleRiskEventChange(
+                                                            option
+                                                        )
+                                                    }
+                                                >
+                                                    {option}
+                                                </li>
+                                            )
+                                        )}
+                                    </ul>
+                                )}
                             {copied && (
                                 <span className="copied-message">Copied</span>
                             )}
