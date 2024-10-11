@@ -250,23 +250,25 @@ function App() {
     const [isRiskEventOpen, setIsRiskEventOpen] = useState(false);
     const [copied, setCopied] = useState(false);
 
-    const handleRiskControlledByChange = (event) => {
-        setSelectedRiskControlledBy(event.target.value);
+    const handleRiskControlledByChange = (value) => {
+        setSelectedRiskControlledBy(value);
         setSelectedRiskCategory("");
         setSelectedRiskEvent("");
         setCopied(false);
+        setIsRiskControlledByOpen(false);
     };
 
-    const handleRiskCategoryChange = (event) => {
-        setSelectedRiskCategory(event.target.value);
+    const handleRiskCategoryChange = (value) => {
+        setSelectedRiskCategory(value);
         setSelectedRiskEvent("");
         setCopied(false);
+        setIsRiskCategoryOpen(false);
     };
 
-    const handleRiskEventChange = (event) => {
-        setSelectedRiskEvent(event.target.value);
+    const handleRiskEventChange = (value) => {
+        setSelectedRiskEvent(value);
         const textArea = document.createElement("textarea");
-        textArea.value = event.target.value;
+        textArea.value = value;
         textArea.style.position = "fixed";
         textArea.style.top = "0";
         textArea.style.left = "-9999px";
@@ -275,6 +277,7 @@ function App() {
         document.execCommand("copy");
         document.body.removeChild(textArea);
         setCopied(true);
+        setIsRiskEventOpen(false);
     };
 
     return (
@@ -311,110 +314,136 @@ function App() {
             </nav>
             {selectedTab === "Selector" ? (
                 <div className="selector-container">
+                    {/* Risk Controlled By */}
                     <div className="dropdown-container">
-                        <label>
-                            Risk Controlled By
+                        <label>Risk Controlled By</label>
+                        <div className="custom-dropdown">
                             <div
-                                className={`custom-select ${
-                                    isRiskControlledByOpen ? "open" : ""
-                                }`}
+                                className="dropdown-header"
+                                onClick={() => {
+                                    setIsRiskControlledByOpen(
+                                        !isRiskControlledByOpen
+                                    );
+                                    setIsRiskCategoryOpen(false);
+                                    setSelectedRiskCategory("");
+                                    setIsRiskEventOpen(false);
+                                    setSelectedRiskEvent("");
+                                }}
                             >
-                                <select
-                                    value={selectedRiskControlledBy}
-                                    onChange={handleRiskControlledByChange}
-                                    onClick={() =>
-                                        setIsRiskControlledByOpen(
-                                            !isRiskControlledByOpen
-                                        )
-                                    }
-                                    onBlur={() =>
-                                        setIsRiskControlledByOpen(false)
-                                    }
-                                >
-                                    <option value="">Select</option>
+                                {selectedRiskControlledBy || "Select"}
+                                <span
+                                    className={`arrow ${
+                                        isRiskControlledByOpen ? "up" : "down"
+                                    }`}
+                                ></span>
+                            </div>
+                            {isRiskControlledByOpen && (
+                                <ul className="dropdown-list">
                                     {riskControlledByOptions.map((option) => (
-                                        <option key={option} value={option}>
+                                        <li
+                                            key={option}
+                                            className="dropdown-item"
+                                            onClick={() =>
+                                                handleRiskControlledByChange(
+                                                    option
+                                                )
+                                            }
+                                        >
                                             {option}
-                                        </option>
+                                        </li>
                                     ))}
-                                </select>
-                                <span className="arrow"></span>
-                            </div>
-                        </label>
+                                </ul>
+                            )}
+                        </div>
                     </div>
+
+                    {/* Risk Category */}
                     <div className="dropdown-container">
-                        <label>
-                            Risk Category
+                        <label>Risk Category</label>
+                        <div className="custom-dropdown">
                             <div
-                                className={`custom-select ${
-                                    isRiskCategoryOpen ? "open" : ""
+                                className={`dropdown-header ${
+                                    !selectedRiskControlledBy ? "disabled" : ""
                                 }`}
+                                onClick={() =>
+                                    selectedRiskControlledBy &&
+                                    setIsRiskCategoryOpen(!isRiskCategoryOpen)
+                                }
                             >
-                                <select
-                                    value={selectedRiskCategory}
-                                    onChange={handleRiskCategoryChange}
-                                    onClick={() =>
-                                        setIsRiskCategoryOpen(
-                                            !isRiskCategoryOpen
-                                        )
-                                    }
-                                    onBlur={() => setIsRiskCategoryOpen(false)}
-                                    disabled={!selectedRiskControlledBy}
-                                >
-                                    <option value="">Select</option>
-                                    {selectedRiskControlledBy &&
-                                        riskCategoryOptions[
+                                {selectedRiskCategory || "Select"}
+                                <span
+                                    className={`arrow ${
+                                        isRiskCategoryOpen ? "up" : "down"
+                                    }`}
+                                ></span>
+                            </div>
+                            {isRiskCategoryOpen &&
+                                selectedRiskControlledBy &&
+                                !isRiskControlledByOpen && (
+                                    <ul className="dropdown-list">
+                                        {riskCategoryOptions[
                                             selectedRiskControlledBy
-                                        ].map((option) => (
-                                            <option key={option} value={option}>
+                                        ]?.map((option) => (
+                                            <li
+                                                key={option}
+                                                className="dropdown-item"
+                                                onClick={() =>
+                                                    handleRiskCategoryChange(
+                                                        option
+                                                    )
+                                                }
+                                            >
                                                 {option}
-                                            </option>
+                                            </li>
                                         ))}
-                                </select>
-                                <span className="arrow"></span>
-                            </div>
-                        </label>
+                                    </ul>
+                                )}
+                        </div>
                     </div>
+
                     <hr className="separator" />
+
+                    {/* Risk Event */}
                     <div className="dropdown-container">
-                        <label>
-                            Risk Event
+                        <label>Risk Event</label>
+                        <div className="custom-dropdown">
                             <div
-                                className={`custom-select ${
-                                    isRiskEventOpen ? "open" : ""
+                                className={`dropdown-header ${
+                                    !selectedRiskCategory ? "disabled" : ""
                                 }`}
+                                onClick={() =>
+                                    // selectedRiskCategory &&
+                                    setIsRiskEventOpen(!isRiskEventOpen)
+                                }
                             >
-                                <select
-                                    value={selectedRiskEvent}
-                                    onChange={handleRiskEventChange}
-                                    onClick={() =>
-                                        setIsRiskEventOpen(!isRiskEventOpen)
-                                    }
-                                    onBlur={() => setIsRiskEventOpen(false)}
-                                    disabled={!selectedRiskCategory}
-                                >
-                                    <option value="">Select</option>
-                                    {selectedRiskControlledBy &&
-                                        selectedRiskCategory &&
-                                        riskEventOptions[
-                                            selectedRiskControlledBy
-                                        ][selectedRiskCategory].map(
-                                            (option) => (
-                                                <option
-                                                    key={option}
-                                                    value={option}
-                                                >
-                                                    {option}
-                                                </option>
-                                            )
-                                        )}
-                                </select>
-                                <span className="arrow"></span>
+                                {selectedRiskEvent || "Select"}
+                                <span
+                                    className={`arrow ${
+                                        isRiskEventOpen ? "up" : "down"
+                                    }`}
+                                ></span>
                             </div>
+                            {isRiskEventOpen && selectedRiskCategory && (
+                                <ul className="dropdown-list">
+                                    {riskEventOptions[
+                                        selectedRiskControlledBy
+                                    ]?.[selectedRiskCategory]?.map((option) => (
+                                        <li
+                                            key={option}
+                                            className="dropdown-item"
+                                            onClick={() =>
+                                                handleRiskEventChange(option)
+                                            }
+                                        >
+                                            {option}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
                             {copied && (
                                 <span className="copied-message">Copied</span>
                             )}
-                        </label>
+                        </div>
                     </div>
                 </div>
             ) : (
