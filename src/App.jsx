@@ -367,10 +367,7 @@ function App() {
                                     !selectedRiskControlledBy ? "disabled" : ""
                                 }`}
                                 onClick={() => {
-                                    selectedRiskControlledBy &&
-                                        setIsRiskCategoryOpen(
-                                            !isRiskCategoryOpen
-                                        );
+                                    setIsRiskCategoryOpen(!isRiskCategoryOpen);
                                     setIsRiskEventOpen(false);
                                     setSelectedRiskEvent("");
                                     setCopied(false);
