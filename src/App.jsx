@@ -417,10 +417,10 @@ function App() {
                                 className={`dropdown-header ${
                                     !selectedRiskCategory ? "disabled" : ""
                                 }`}
-                                onClick={() =>
-                                    // selectedRiskCategory &&
-                                    setIsRiskEventOpen(!isRiskEventOpen)
-                                }
+                                onClick={() => {
+                                    setIsRiskEventOpen(!isRiskEventOpen);
+                                    setCopied(false);
+                                }}
                             >
                                 {selectedRiskEvent || "Select"}
                                 <span
